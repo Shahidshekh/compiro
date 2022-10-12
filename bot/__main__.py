@@ -23,7 +23,7 @@ async def start_command(app, message):
             InlineKeyboardButton("Owner", url="https://t.me/the_fourth_minato")
         ]
     ]
-    user = message.from_user.id
+    user = message.from_user.username
     name = message.from_user.first_name
     await message.reply_text(f"Hello <a href='t.me/{user}'>{name}</a>! 😉\n\nThis is a all in one bot and "
                              f"can do a lot of things. 😁\nStill under Devlopment so u can may Encounter some errors. "
