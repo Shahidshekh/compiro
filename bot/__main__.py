@@ -1,5 +1,6 @@
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyBoardMarkup
+from bot import LOGGER
 
 
 if __name__ == "__main__":
