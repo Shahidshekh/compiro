@@ -32,6 +32,12 @@ async def start_command(app, message):
                              reply_markup=InlineKeyboardMarkup(help_button)
                              )
     
+restaer_handler = MessageHandler(
+    restart,
+    filters=filters.command('restart')
+)
+app.add_handler(restart)
+    
 LOGGER.info("The Bot Has Been Started 😎")
 
 idle()
