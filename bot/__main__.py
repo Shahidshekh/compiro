@@ -10,7 +10,7 @@ if __name__ == "__main__":
         "hello",
         api_id=11873433,
         api_hash="96abaf0d59cd1f5482bdc93ba6030424",
-        bot_token="5553254288:AAHvhjrbImGLZNQlHgb_TEG43Fuf3UfD47g"
+        bot_token="5269784341:AAFAz_umXmT9iaj5ds5mlZK0Jh0AwaT6hRQ"
     )
 app.start()
 
