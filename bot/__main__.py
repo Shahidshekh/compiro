@@ -1,5 +1,7 @@
 from pyrogram import Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyBoardMarkup
+from pyrogram.handlers import MessageHandler
+from bot.modules.restart import restart
 from bot import LOGGER
 
 
