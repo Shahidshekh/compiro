@@ -19,7 +19,7 @@ def main():
     if os.path.isfile(".restartmsg"):
         with open(".restartmsg") as fk:
             chat, msg = map(int, fk)
-            msg.edit("Restarted!")
+            app.send_message(chat,"Restarted!")
             os.remove(".restartmsg")
     
 
