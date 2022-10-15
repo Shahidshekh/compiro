@@ -4,7 +4,7 @@ import aria2p
 import sys
 from pyrogram.errors import FloodWait, MessageNotModified
 from time import time, sleep
-from bot.modules.logger import LOGGER
+from bot import LOGGER
 import math
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
