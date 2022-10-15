@@ -1,4 +1,4 @@
-from pyrogram import Client
+from pyrogram import Client, filters, idle
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.handlers import MessageHandler
 from bot.modules.restart import restart
