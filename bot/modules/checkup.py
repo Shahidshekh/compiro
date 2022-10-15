@@ -1,7 +1,6 @@
 import asyncio
 from shutil import rmtree
 from time import time
-from bot.modules.dl_progress import Progress
 import os
 from bot import authorized_chats, LOGGER
 
