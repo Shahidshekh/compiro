@@ -17,9 +17,9 @@ if __name__ == "__main__":
 app.start()
 
 if os.path.isfile(".restartmsg"):
-    async with open(".restartmsg") as fk:
+    with open(".restartmsg") as fk:
         chat, msg = map(int, fk)
-        await msg.edit("Restarted!")
+        msg.edit("Restarted!")
         os.remove(".restartmsg")
     
 
