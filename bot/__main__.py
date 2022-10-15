@@ -15,11 +15,11 @@ if __name__ == "__main__":
         bot_token="5269784341:AAFAz_umXmT9iaj5ds5mlZK0Jh0AwaT6hRQ"
     )
 app.start()
-async def main():
+def main():
     if os.path.isfile(".restartmsg"):
         with open(".restartmsg") as fk:
             chat, msg = map(int, fk)
-            await msg.edit("Restarted!")
+            msg.edit("Restarted!")
             os.remove(".restartmsg")
     
 
