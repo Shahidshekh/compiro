@@ -89,3 +89,10 @@ async def incoming_func(app, message):
         await message.delete()
         await lol.delete()
         return
+
+
+def search(listed, item):
+    for i in range(len(listed)):
+        if listed[i] == item:
+            return True
+    return False
