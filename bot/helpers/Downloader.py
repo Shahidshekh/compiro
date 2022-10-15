@@ -62,7 +62,6 @@ class Downloader:
                     disable_notification=True,
                     progress=progress
                 )
-                if total is not None:
                 clean_all(self.download_location)
 
             except Exception as e:
