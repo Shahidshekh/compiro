@@ -30,8 +30,8 @@ except:
 
 load_dotenv('config.env', override=True)
 
-UPSTREAM_REPO = environ.get('UPSTREAM_REPO')
-UPSTREAM_BRANCH = environ.get('UPSTREAM_BRANCH')
+UPSTREAM_REPO = "https://github.com/Shahidshekh/compiro"
+UPSTREAM_BRANCH = "main"
 try:
     if len(UPSTREAM_REPO) == 0:
        raise TypeError
