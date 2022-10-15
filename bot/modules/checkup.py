@@ -30,7 +30,6 @@ async def incoming_func(app, message):
             if mess.media and user_id:
                 file_name = await download.download_from_file(app)
                 LOGGER.info(f"Downloaded : {file_name}")
-                msg = await message.reply("**Compressing...**", quote=True)
                 filename = os.path.basename(file_name)
                 try:
                     os.makedirs(ext_location)
@@ -38,13 +37,11 @@ async def incoming_func(app, message):
                     pass
                     
                 out = f"{ext_location}{filename}"
-                await compress(file_name, out, msg, user_id)
-                co=os.listdir(download_location)
-                LOGGER.info(co)
+                cfile= await compress(file_name, out, message, user_id)
                 msg = await message.reply("**Trying to upload...**")
                 prog = Progress(msg, file_name, st)
                 await download.upload(
-                    file_name,
+                    cfile,
                     msg,
                     thumbnail,
                     prog.up_progress
@@ -53,23 +50,19 @@ async def incoming_func(app, message):
                 await message.reply("Uploaded Successfully!")
 
             elif mess.text.startswith("http"):
-                try:
-                    c = mess.text.split(" | ")
-                    url = c[0]
-                    new_name = c[1]
-                except:
-                    url = mess.text
-                    new_name = ""
                 file_name = await download.download_from_link(url)
                 if file_name is False:
                     return
                 else:
                     if command.lower().endswith('compress'):
-                        msg = await message.reply("**Compressing...**", quote=True)
                         filename = os.path.basename(file_name)
-                        os.makedirs(ext_location)
+                        try:
+                            os.makedirs(ext_location)
+                        except Exception:
+                            pass
+
                         out = f"{ext_location}{filename}"
-                        await compress(file_name, out, msg, user_id)
+                        await compress(file_name, out, message, user_id)
                         msg = await message.reply("**Trying to upload...**", quote=True)
                         await asyncio.sleep(3)
                         prog = Progress(msg, file_name, st)
