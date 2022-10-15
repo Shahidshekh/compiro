@@ -38,7 +38,7 @@ async def incoming_func(app, message):
                     pass
                     
                 out = f"{ext_location}{filename}"
-                #await compress(file_name, out, msg, user_id)
+                await compress(file_name, out, msg, user_id)
                 co=os.listdir(download_location)
                 LOGGER.info(co)
                 msg = await message.reply("**Trying to upload...**")
