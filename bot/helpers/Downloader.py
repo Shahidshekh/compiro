@@ -10,8 +10,7 @@ from pyrogram.errors import FloodWait
 
 
 class Downloader:
-    def __init__(self, client, message, custom_name):
-        self.name = custom_name
+    def __init__(self, client, message):
         self.msg = message
         self.client = client
         self.st = time()
