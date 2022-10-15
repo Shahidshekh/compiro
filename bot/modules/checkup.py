@@ -17,7 +17,6 @@ async def incoming_func(app, message):
     thumb_path = f"/usr/src/app/thumb/{message.from_user.id}.jpg"
     if os.path.exists(thumb_path):
         thumbnail = thumb_path
-    download = Downloader(app, message, custom_name)
     reso = search(authorized_chats, str(message.chat.id))
     if not reso:
         await message.reply(text="I'm not familiar to this chat...\nPlease Contact @the_fourth_minato for authorization", quote=True)
@@ -79,7 +78,6 @@ async def incoming_func(app, message):
             else:
                 await message.reply_text("Doesn't seem to be a <b>Download Source</b>", quote=True)
 
-            remove_user(user_id)
 
         elif not res:
             await message.reply("<b>Ongoing Process Found!</b> Please wait until it's complete", quote=True)
