@@ -15,6 +15,7 @@ async def incoming_func(app, message):
     download_location = f"/usr/src/app/Download/{user_id}/"
     ext_location = f"/usr/src/app/extracted/{user_id}/"
     thumb_path = f"/usr/src/app/thumb/{message.from_user.id}.jpg"
+    download = Downloader(app, message, custom_name)
     if os.path.exists(thumb_path):
         thumbnail = thumb_path
     reso = search(authorized_chats, str(message.chat.id))
