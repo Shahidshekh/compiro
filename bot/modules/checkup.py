@@ -3,6 +3,8 @@ from shutil import rmtree
 from time import time
 import os
 from bot import authorized_chats, LOGGER
+from bot.helpers.Downloader import Downloader
+from bot.helpers.dl_progress import Progress
 
 
 
@@ -32,7 +34,9 @@ async def incoming_func(app, message):
                 filename = os.path.basename(file_name)
                 os.makedirs(ext_location)
                 out = f"{ext_location}{filename}"
-                await compress(file_name, out, msg, user_id)
+                #await compress(file_name, out, msg, user_id)
+                co=os.listdir(download_location)
+                LOGGER.info(co)
                 msg = await message.reply("**Trying to upload...**")
                 prog = Progress(msg, file_name, st)
                 await download.upload(
@@ -79,6 +83,8 @@ async def incoming_func(app, message):
             else:
                 await message.reply_text("Doesn't seem to be a <b>Download Source</b>", quote=True)
 
+            clean_all(download_location, ext_location)
+
 
         elif not res:
             await message.reply("<b>Ongoing Process Found!</b> Please wait until it's complete", quote=True)
@@ -97,3 +103,11 @@ def search(listed, item):
         if listed[i] == item:
             return True
     return False
+
+def clean_all(dl_loc, ext_loc):
+    LOGGER.info("Cleaning...")
+    try:
+        rmtree(dl_loc)
+        rmtree(ext_loc)
+    except Exception as e:
+        pass

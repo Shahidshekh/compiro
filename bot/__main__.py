@@ -1,7 +1,7 @@
 from pyrogram import Client, filters, idle
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.handlers import MessageHandler
-from bot.modules.restart import restart
+from bot.modules.restart import restart, log
 from bot.modules.checkup import incoming_func
 from bot import LOGGER
 import os
@@ -51,6 +51,12 @@ incoming_handler = MessageHandler(
     filters=filters.command('compress')
 )
 app.add_handler(incoming_handler)
+
+log_handler = MessageHandler(
+    log,
+    filters=filters.command('log')
+)
+app.add_handler(log_handler)
     
 LOGGER.info("The Bot Has Been Started 😎")
 main()
