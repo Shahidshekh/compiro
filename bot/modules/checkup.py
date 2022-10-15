@@ -3,7 +3,7 @@ from shutil import rmtree
 from time import time
 import os
 from bot import authorized_chats, LOGGER
-from bot.helpers.Downloader import Downloader
+from bot.helpers.Downloader import Downloader, compress
 from bot.helpers.dl_progress import Progress
 
 
