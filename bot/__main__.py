@@ -15,12 +15,12 @@ if __name__ == "__main__":
         bot_token="5269784341:AAFAz_umXmT9iaj5ds5mlZK0Jh0AwaT6hRQ"
     )
 app.start()
-
-if os.path.isfile(".restartmsg"):
-    with open(".restartmsg") as fk:
-        chat, msg = map(int, fk)
-        msg.edit("Restarted!")
-        os.remove(".restartmsg")
+async def main()
+    if os.path.isfile(".restartmsg"):
+        with open(".restartmsg") as fk:
+            chat, msg = map(int, fk)
+            await msg.edit("Restarted!")
+            os.remove(".restartmsg")
     
 
 @app.on_message(filters.command('start'))
@@ -53,7 +53,7 @@ incoming_handler = MessageHandler(
 app.add_handler(incoming_handler)
     
 LOGGER.info("The Bot Has Been Started 😎")
-
+main()
 idle()
 
 app.stop()
