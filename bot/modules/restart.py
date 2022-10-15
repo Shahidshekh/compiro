@@ -7,5 +7,5 @@ async def restart(app, message):
   srun(["python3", "upstream.py"])
   with open(".restartmg", "w") as f:
     f.truncate(0)
-    f.write(f"{msg.chat.id}\n{msg.message_id}\n")
+    f.write(f"{msg.chat.id}\n{msg.id}\n")
   execl(executable, executable, "-m", "bot")

@@ -4,6 +4,7 @@ from pyrogram.handlers import MessageHandler
 from bot.modules.restart import restart
 from bot.modules.checkup import incoming_func
 from bot import LOGGER
+import os
 
 
 if __name__ == "__main__":
@@ -15,6 +16,12 @@ if __name__ == "__main__":
     )
 app.start()
 
+if os.path.isfile(".restartmsg"):
+    async with open(".restartmsg") as fk:
+        chat, msg = map(int, fk)
+        await msg.edit("Restarted!")
+        os.remove(".restartmsg")
+    
 
 @app.on_message(filters.command('start'))
 async def start_command(app, message):
