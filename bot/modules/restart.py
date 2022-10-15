@@ -14,5 +14,4 @@ async def restart(app, message):
 
 async def log(app, message):
   dldr = Downloader(app, message)
-  msg = await message.reply("sending logs...", quote=True)
-  await dldr.upload("log.txt", msg, None, None)
+  await dldr.upload("log.txt", message, None, None)

@@ -63,7 +63,6 @@ class Downloader:
                     progress=progress
                 )
                 if total is not None:
-                    LOGGER.info("Uploaded fk")
                 clean_all(self.download_location)
 
             except Exception as e:

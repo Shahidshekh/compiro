@@ -32,7 +32,11 @@ async def incoming_func(app, message):
                 LOGGER.info(f"Downloaded : {file_name}")
                 msg = await message.reply("**Compressing...**", quote=True)
                 filename = os.path.basename(file_name)
-                os.makedirs(ext_location)
+                try:
+                    os.makedirs(ext_location)
+                except Exception:
+                    pass
+                    
                 out = f"{ext_location}{filename}"
                 #await compress(file_name, out, msg, user_id)
                 co=os.listdir(download_location)
