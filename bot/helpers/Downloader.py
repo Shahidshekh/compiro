@@ -1,7 +1,7 @@
 import asyncio
 import os
 from time import time
-from bot.modules.dl_progress import Progress
+from bot.helpers.dl_progress import Progress
 from bot.helpers.aria_start import add_url, aria_start, progress_aria
 from bot import LOGGER
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
