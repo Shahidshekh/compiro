@@ -17,20 +17,6 @@ class Downloader:
         self.user = message.from_user.id
         self.download_location = f"/usr/src/app/Download/{self.user}/"
 
-    async def download_from_link(self, url):
-
-        if url.startswith("http"):
-            msg = await self.msg.reply("**Checking...**", quote=True)
-            await asyncio.sleep(2)
-            aria_i = await aria_start()
-            done, gid = add_url(aria_i, url, self.download_location)
-            file = await progress_aria(aria_i, gid, msg, self.user)
-            if file is None:
-                await msg.delete()
-                return False
-            else:
-                file_name = f"{self.download_location}{file}"
-                return file_name
 
     async def download_from_file(self, app):
         mess = self.msg.reply_to_message

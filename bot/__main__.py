@@ -21,7 +21,8 @@ def main():
             chat, msg = map(int, fk)
             app.send_message(chat,"Restarted!")
             os.remove(".restartmsg")
-    
+    else:
+        pass
 
 @app.on_message(filters.command('start'))
 async def start_command(app, message):

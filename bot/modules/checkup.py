@@ -49,34 +49,6 @@ async def incoming_func(app, message):
                 await msg.delete()
                 await message.reply("Uploaded Successfully!")
 
-            elif mess.text.startswith("http"):
-                file_name = await download.download_from_link(url)
-                if file_name is False:
-                    return
-                else:
-                    if command.lower().endswith('compress'):
-                        filename = os.path.basename(file_name)
-                        try:
-                            os.makedirs(ext_location)
-                        except Exception:
-                            pass
-
-                        out = f"{ext_location}{filename}"
-                        await compress(file_name, out, message, user_id)
-                        msg = await message.reply("**Trying to upload...**", quote=True)
-                        await asyncio.sleep(3)
-                        prog = Progress(msg, file_name, st)
-                        try:
-                            await download.upload(
-                                file_name,
-                                msg,
-                                thumbnail,
-                                prog.up_progress
-                            )
-                            await message.reply("Uploaded Successfully!", quote=True)
-                        except Exception as e:
-                            LOGGER.error(e)
-
             else:
                 await message.reply_text("Doesn't seem to be a <b>Download Source</b>", quote=True)
 
