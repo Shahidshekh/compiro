@@ -10,9 +10,9 @@ import os
 if __name__ == "__main__":
     app = Client(
         "hello",
-        api_id=11873433,
-        api_hash="96abaf0d59cd1f5482bdc93ba6030424",
-        bot_token="5269784341:AAFAz_umXmT9iaj5ds5mlZK0Jh0AwaT6hRQ"
+        api_id=APP_ID,
+        api_hash=API_HASH,
+        bot_token=BOT_TOKEN
     )
 app.start()
 def main():
