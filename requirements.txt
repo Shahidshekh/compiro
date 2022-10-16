@@ -1,5 +1,5 @@
 pyrogram
 tgcrypto
 asyncio
-aria2p
 pyromod
+python_dotenv

@@ -1,4 +1,4 @@
-
+import dotenv
 import logging
 import logging.handlers
 import sys
@@ -23,3 +23,8 @@ LOGGER.setLevel(logging.INFO)
 
 authorized_chats = ["-1001751748596", "1485677797", "-1001786055055"]
 filenames = {}
+
+dotenv.load_dotenv("config.env")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+APP_ID = int(os.environ.get("APP_ID", "12345"))
+API_HASH = os.environ.get("API_HASH")

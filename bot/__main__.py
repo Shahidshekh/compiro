@@ -3,7 +3,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.handlers import MessageHandler
 from bot.modules.restart import restart, log
 from bot.modules.checkup import incoming_func
-from bot import LOGGER
+from bot import LOGGER, APP_ID, API_HASH, BOT_TOKEN
 import os
 
 
